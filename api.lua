@@ -1991,14 +1991,14 @@ local mob_punch = function(self, hitter, tflp, tool_capabilities, dir)
 
 	-- error checking when mod profiling is enabled
 	if not tool_capabilities then
-		print (S("[MOBS] mod profiling enabled, damage not enabled"))
+		minetest.log("warning", "[mobs] Mod profiling enabled, damage not enabled")
 		return
 	end
 
 	-- is mob protected?
 	if self.protected and hitter:is_player()
 	and minetest.is_protected(self.object:getpos(), hitter:get_player_name()) then
-		minetest.chat_send_player(hitter:get_player_name(), "Mob has been protected!")
+		minetest.chat_send_player(hitter:get_player_name(), S("Mob has been protected!"))
 		return
 	end
 
@@ -2672,12 +2672,11 @@ function mobs:spawn_specific(name, nodes, neighbors, min_light, max_light,
 		aoc = tonumber(numbers[2]) or aoc
 
 		if chance == 0 then
-			print(S("[Mobs Redo] @1 has spawning disabled", name))
+			minetest.log("warning", string.format("[mobs] %s has spawning disabled", name))
 			return
 		end
 
-		print (S("[Mobs Redo] Chance setting for @1 changed to @2", name, chance)
-			.. " (total: " .. aoc .. ")")
+		minetest.log("action", string.format("[mobs] Chance setting for %s changed to %s (total: %s)", name, chance, aoc))
 
 	end
 
@@ -2788,7 +2787,7 @@ function mobs:spawn_specific(name, nodes, neighbors, min_light, max_light,
 					return
 				end
 			else
-				print (S("[mobs] @1 failed to spawn at @2",
+				minetest.log("warning", string.format("[mobs] %s failed to spawn at %s",
 				name, minetest.pos_to_string(pos)))
 			end
 
@@ -3412,8 +3411,8 @@ function mobs:feed_tame(self, clicker, feed_count, breed, tame)
 		minetest.show_formspec(name, "mobs_nametag", "size[8,4]"
 			.. default.gui_bg
 			.. default.gui_bg_img
-			.. "field[0.5,1;7.5,0;name;" .. S("Enter name:") .. ";" .. tag .. "]"
-			.. "button_exit[2.5,3.5;3,1;mob_rename;" .. S("Rename") .. "]")
+			.. "field[0.5,1;7.5,0;name;" .. minetest.formspec_escape(S("Enter name:")) .. ";" .. tag .. "]"
+			.. "button_exit[2.5,3.5;3,1;mob_rename;" .. minetest.formspec_escape(S("Rename")) .. "]")
 
 	end
 

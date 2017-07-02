@@ -4,7 +4,7 @@ local S, NS = dofile(MP.."/intllib.lua")
 
 -- name tag
 minetest.register_craftitem("mobs:nametag", {
-	description = S("Nametag"),
+	description = S("Name Tag"),
 	inventory_image = "mobs_nametag.png",
 })
 
@@ -104,7 +104,7 @@ minetest.register_craft({
 
 -- saddle
 minetest.register_craftitem("mobs:saddle", {
-	description = "Saddle",
+	description = S("Saddle"),
 	inventory_image = "mobs_saddle.png"
 })
 
