@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mobs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-02 14:41+0200\n"
+"POT-Creation-Date: 2017-07-02 16:48+0200\n"
 "PO-Revision-Date: 2017-07-02 14:27+0200\n"
 "Last-Translator: Wuzzy <almikes@aol.com>\n"
 "Language-Team: \n"
@@ -21,6 +21,10 @@ msgstr ""
 #: api.lua
 msgid "Mob has been protected!"
 msgstr "Kreatur wurde geschützt!"
+
+#: api.lua
+msgid "@1 (Tamed)"
+msgstr "@1 (Gezähmt)"
 
 #: api.lua
 msgid "Not tamed!"

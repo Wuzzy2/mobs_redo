@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-02 14:41+0200\n"
+"POT-Creation-Date: 2017-07-02 16:48+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,10 @@ msgstr ""
 
 #: api.lua
 msgid "Mob has been protected!"
+msgstr ""
+
+#: api.lua
+msgid "@1 (Tamed)"
 msgstr ""
 
 #: api.lua
