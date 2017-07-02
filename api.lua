@@ -7,20 +7,8 @@ mobs.version = "20170630"
 
 
 -- Intllib
-local S
-
-if minetest.get_modpath("intllib") then
-	S = intllib.Getter()
-else
-	S = function(s, a, ...) a = {a, ...}
-		return s:gsub("@(%d+)", function(n)
-			return a[tonumber(n)]
-		end)
-	end
-
-end
-
-mobs.intllib = S
+local MP = minetest.get_modpath(minetest.get_current_modname())
+local S, NS = dofile(MP.."/intllib.lua")
 
 
 -- CMI support check
