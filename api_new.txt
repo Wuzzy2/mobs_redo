@@ -323,12 +323,24 @@ command which uses above names to make settings clearer:
        max_light = 7,
     })
 
+Each spawn_definition is a table and has all the attributes you find in
+mobs:register_spawn.
 
 For each mob that spawns with this function is a field in mobs.spawning_mobs.
 It tells if the mob should spawn or not.  Default is true.  So other mods can
 only use the API of this mod by disabling the spawning of the default mobs in
 this mod.
 
+Each spawn definition is stored in mobs.registered_spawns. The table format is:
+
+    mobs.registered_spawns = {
+        [mob_name_1] = { spawn_definition_1, spawn_definition_2, ... },
+        [mob_name_2] = { ... },
+        ...
+    }
+
+Each spawn_definition is a table and has all the attributes you find in
+mobs:register_spawn.
 
 Making Arrows
 -------------

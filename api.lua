@@ -2649,6 +2649,7 @@ end
 
 
 mobs.spawning_mobs = {}
+mobs.registered_spawns = {}
 
 -- register mob entity
 function mobs:register_mob(name, def)
@@ -2827,7 +2828,7 @@ function mobs:spawn_specific(name, nodes, neighbors, min_light, max_light,
 
 	end
 
-	minetest.register_abm({
+	local abm_def = {
 
 		label = name .. " spawning",
 		nodenames = nodes,
@@ -2943,7 +2944,26 @@ function mobs:spawn_specific(name, nodes, neighbors, min_light, max_light,
 					name, minetest.pos_to_string(pos)))
 			end
 		end
-	})
+	}
+	minetest.register_abm(abm_def)
+
+	if not mobs.registered_spawns[name] then
+		mobs.registered_spawns[name] = {}
+	end
+	local spawn_def = {
+		nodes = nodes,
+		neighbors = neighbors,
+		min_light = min_light,
+		max_light = max_light,
+		interval = interval,
+		chance = chance,
+		aoc = aoc,
+		min_height = min_height,
+		max_height = max_height,
+		day_toggle = day_toggle,
+		on_spawn = on_spawn,
+	}
+	table.insert(mobs.registered_spawns[name], spawn_def)
 end
 
 
